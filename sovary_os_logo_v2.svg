@@ -1,0 +1,127 @@
+<svg width="100%" viewBox="0 0 680 530" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="bg-glow" cx="50%" cy="42%" r="45%">
+    <stop offset="0%" stop-color="#0a1628" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#04060a" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="blue-glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#5b8fff" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#5b8fff" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="gold-glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#d4a853" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#d4a853" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="diamond-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#7aa8ff" stop-opacity="0.9"/>
+    <stop offset="50%" stop-color="#5b8fff" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#3d6fef" stop-opacity="0.9"/>
+  </linearGradient>
+  <linearGradient id="diamond-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f0c874" stop-opacity="1"/>
+    <stop offset="50%" stop-color="#d4a853" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#b8882e" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#7aa8ff"/>
+    <stop offset="40%" stop-color="#f0f4ff"/>
+    <stop offset="100%" stop-color="#d4a853"/>
+  </linearGradient>
+<mask id="imagine-text-gaps-ehj7n0" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="530" fill="white"/><rect x="326.1451110839844" y="198.8571319580078" width="28" height="38.28571319580078" fill="black" rx="2"/><rect x="204.85044860839844" y="359.4285888671875" width="270.2991027832031" height="51.14285659790039" fill="black" rx="2"/><rect x="317.5959777832031" y="418.5714416503906" width="44.80803680419922" height="19.714285850524902" fill="black" rx="2"/><rect x="159.22544860839844" y="450.8571472167969" width="361.5491027832031" height="14" fill="black" rx="2"/><rect x="261.1897277832031" y="482.8571472167969" width="157.62054443359375" height="14" fill="black" rx="2"/></mask></defs>
+
+<!-- Background -->
+<rect width="680" height="520" fill="url(#bg-glow)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Ambient glow behind logo -->
+<ellipse cx="340" cy="210" rx="200" ry="180" fill="url(#blue-glow)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<ellipse cx="340" cy="210" rx="120" ry="100" fill="url(#gold-glow)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Outer orbit ring - dashed -->
+<circle cx="340" cy="210" r="175" fill="none" stroke="#5b8fff" stroke-width="0.5" stroke-dasharray="4 8" opacity="0.3" style="fill:none;stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Four orbital dots -->
+<circle cx="340" cy="36" r="4" fill="#5b8fff" opacity="0.7" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="514" cy="210" r="4" fill="#d4a853" opacity="0.7" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="340" cy="384" r="4" fill="#5b8fff" opacity="0.7" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="166" cy="210" r="4" fill="#d4a853" opacity="0.7" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Orbital lines from dots -->
+<line x1="340" y1="40" x2="340" y2="58" stroke="#5b8fff" stroke-width="1" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="510" y1="210" x2="492" y2="210" stroke="#d4a853" stroke-width="1" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="340" y1="380" x2="340" y2="362" stroke="#5b8fff" stroke-width="1" opacity="0.5" mask="url(#imagine-text-gaps-ehj7n0)" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="170" y1="210" x2="188" y2="210" stroke="#d4a853" stroke-width="1" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Second ring -->
+<circle cx="340" cy="210" r="148" fill="none" stroke="#d4a853" stroke-width="0.5" opacity="0.15" style="fill:none;stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- OUTER DIAMOND - main shape -->
+<polygon points="340,62 478,210 340,358 202,210" fill="none" stroke="url(#diamond-blue)" stroke-width="2" opacity="0.9" style="fill:none;color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Outer diamond subtle fill -->
+<polygon points="340,62 478,210 340,358 202,210" fill="#5b8fff" opacity="0.03" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.03;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Gold corner decorations - top -->
+<polygon points="340,62 356,78 340,86 324,78" fill="url(#diamond-gold)" opacity="0.9" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Gold corner decorations - right -->
+<polygon points="478,210 462,196 470,210 462,224" fill="url(#diamond-gold)" opacity="0.9" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Gold corner decorations - bottom -->
+<polygon points="340,358 356,342 340,334 324,342" fill="url(#diamond-gold)" opacity="0.9" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Gold corner decorations - left -->
+<polygon points="202,210 218,196 210,210 218,224" fill="url(#diamond-gold)" opacity="0.9" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- MIDDLE DIAMOND -->
+<polygon points="340,96 444,210 340,324 236,210" fill="none" stroke="#d4a853" stroke-width="1" opacity="0.5" style="fill:none;stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- INNER DIAMOND - blue filled -->
+<polygon points="340,138 402,210 340,282 278,210" fill="#04060a" stroke="url(#diamond-blue)" stroke-width="1.5" style="fill:rgb(4, 6, 10);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<polygon points="340,138 402,210 340,282 278,210" fill="#5b8fff" opacity="0.08" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.08;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Inner diamond facets -->
+<line x1="340" y1="138" x2="402" y2="210" stroke="#5b8fff" stroke-width="0.5" opacity="0.2" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="402" y1="210" x2="340" y2="282" stroke="#5b8fff" stroke-width="0.5" opacity="0.2" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="340" y1="282" x2="278" y2="210" stroke="#5b8fff" stroke-width="0.5" opacity="0.2" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="278" y1="210" x2="340" y2="138" stroke="#5b8fff" stroke-width="0.5" opacity="0.2" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="340" y1="138" x2="340" y2="282" stroke="#5b8fff" stroke-width="0.3" opacity="0.15" mask="url(#imagine-text-gaps-ehj7n0)" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="278" y1="210" x2="402" y2="210" stroke="#5b8fff" stroke-width="0.3" opacity="0.15" mask="url(#imagine-text-gaps-ehj7n0)" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- CORE tiny diamond -->
+<polygon points="340,185 365,210 340,235 315,210" fill="url(#diamond-gold)" opacity="0.25" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<polygon points="340,185 365,210 340,235 315,210" fill="none" stroke="#d4a853" stroke-width="1" opacity="0.8" style="fill:none;stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Center S letterform -->
+<text x="340" y="218" text-anchor="middle" dominant-baseline="central" font-family="'Georgia', serif" font-size="30" font-weight="400" font-style="italic" fill="#7aa8ff" opacity="0.95" style="fill:rgb(122, 168, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.95;font-family:Georgia, serif;font-size:30px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:central">S</text>
+
+<!-- Diagonal cross lines through main diamond -->
+<line x1="340" y1="62" x2="340" y2="358" stroke="#5b8fff" stroke-width="0.4" opacity="0.1" mask="url(#imagine-text-gaps-ehj7n0)" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="202" y1="210" x2="478" y2="210" stroke="#5b8fff" stroke-width="0.4" opacity="0.1" mask="url(#imagine-text-gaps-ehj7n0)" style="fill:rgb(0, 0, 0);stroke:rgb(91, 143, 255);color:rgb(255, 255, 255);stroke-width:0.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Small accent dots on middle diamond corners -->
+<circle cx="340" cy="96" r="2.5" fill="#d4a853" opacity="0.6" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="444" cy="210" r="2.5" fill="#5b8fff" opacity="0.6" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="340" cy="324" r="2.5" fill="#d4a853" opacity="0.6" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="236" cy="210" r="2.5" fill="#5b8fff" opacity="0.6" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- SOVARY wordmark -->
+<text x="340" y="400" text-anchor="middle" font-family="'Georgia', 'Times New Roman', serif" font-size="42" font-weight="400" letter-spacing="16" fill="url(#text-gradient)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-size:42px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SOVARY</text>
+
+<!-- Thin decorative lines flanking OS -->
+<line x1="260" y1="428" x2="310" y2="428" stroke="#d4a853" stroke-width="0.8" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="370" y1="428" x2="420" y2="428" stroke="#d4a853" stroke-width="0.8" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(212, 168, 83);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- OS text -->
+<text x="340" y="432" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" font-weight="400" letter-spacing="10" fill="#d4a853" opacity="0.95" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.95;font-family:&quot;Courier New&quot;, monospace;font-size:14px;font-weight:400;text-anchor:middle;dominant-baseline:auto">OS</text>
+
+<!-- Tagline -->
+<text x="340" y="460" text-anchor="middle" font-family="'Courier New', monospace" font-size="8.5" font-weight="400" letter-spacing="5" fill="#3d5070" style="fill:rgb(61, 80, 112);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8.5px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SOVEREIGN · AI · OPERATING · SYSTEM</text>
+
+<!-- Bottom decorative dots -->
+<circle cx="300" cy="475" r="1.5" fill="#5b8fff" opacity="0.4" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="320" cy="475" r="1.5" fill="#d4a853" opacity="0.4" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="340" cy="475" r="2" fill="#5b8fff" opacity="0.6" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="360" cy="475" r="1.5" fill="#d4a853" opacity="0.4" style="fill:rgb(212, 168, 83);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="380" cy="475" r="1.5" fill="#5b8fff" opacity="0.4" style="fill:rgb(91, 143, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- India · 2026 -->
+<text x="340" y="492" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" font-weight="400" letter-spacing="4" fill="#2a3550" style="fill:rgb(42, 53, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">INDIA · EST. 2026</text>
+
+</svg>

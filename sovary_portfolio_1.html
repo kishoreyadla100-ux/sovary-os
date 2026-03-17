@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOVARY OS — Sovereign AI Operating System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #04060a;
+  --deep: #080c12;
+  --card: #0c1018;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --accent: #5b8fff;
+  --accent2: #3d6fef;
+  --gold: #d4a853;
+  --gold2: #f0c874;
+  --teal: #2dd4bf;
+  --white: #f0f4ff;
+  --white2: #a8b4cc;
+  --white3: #5a6478;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Cormorant Garamond', serif;
+  --sans: 'Outfit', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--sans);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+.cursor-ring {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(91,143,255,0.4);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+}
+
+/* NOISE OVERLAY */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 998; opacity: 0.4;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(4,6,10,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-diamond {
+  width: 24px; height: 24px;
+  border: 1.5px solid var(--accent);
+  transform: rotate(45deg);
+  position: relative;
+  animation: diamond-pulse 3s ease-in-out infinite;
+}
+.nav-diamond::after {
+  content: '';
+  position: absolute; inset: 4px;
+  background: var(--accent); opacity: 0.3;
+}
+@keyframes diamond-pulse {
+  0%,100%{ box-shadow: 0 0 8px rgba(91,143,255,0.3); }
+  50%{ box-shadow: 0 0 20px rgba(91,143,255,0.7); }
+}
+.nav-brand {
+  font-family: var(--mono);
+  font-size: 14px; letter-spacing: 3px;
+  color: var(--accent); font-weight: 500;
+}
+
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--white3); text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--accent);
+  border: 1px solid rgba(91,143,255,0.4);
+  padding: 10px 20px; border-radius: 2px;
+  text-decoration: none; text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.nav-cta:hover {
+  background: var(--accent); color: var(--black);
+  box-shadow: 0 0 20px rgba(91,143,255,0.4);
+}
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 120px 60px 80px;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,143,255,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(45,212,191,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 30% at 20% 60%, rgba(212,168,83,0.04) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(91,143,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91,143,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent);
+}
+
+.hero-content {
+  position: relative; z-index: 1;
+  text-align: center; max-width: 900px;
+}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 3px;
+  color: var(--accent); text-transform: uppercase;
+  border: 1px solid rgba(91,143,255,0.3);
+  padding: 8px 18px; border-radius: 100px;
+  margin-bottom: 32px;
+  animation: fade-up 0.8s ease both;
+}
+.hero-tag-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%; background: var(--accent);
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300; line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  animation: fade-up 0.8s ease 0.1s both;
+}
+.hero-title em {
+  font-style: italic; color: var(--accent);
+  display: block;
+}
+.hero-title span {
+  display: block; color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 18px; font-weight: 300;
+  color: var(--white2); line-height: 1.7;
+  max-width: 600px; margin: 24px auto 48px;
+  animation: fade-up 0.8s ease 0.2s both;
+}
+
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap;
+  animation: fade-up 0.8s ease 0.3s both;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--black);
+  padding: 16px 36px; border-radius: 2px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; font-weight: 500;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: none; cursor: none;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(91,143,255,0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white2);
+  padding: 16px 36px; border-radius: 2px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: none;
+}
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--white);
+}
+
+.hero-stats {
+  display: flex; gap: 48px; justify-content: center;
+  margin-top: 80px; padding-top: 48px;
+  border-top: 1px solid var(--border);
+  animation: fade-up 0.8s ease 0.4s both;
+}
+.hero-stat {}
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 36px; font-weight: 300;
+  color: var(--white); letter-spacing: -1px;
+}
+.hero-stat-num span { color: var(--accent); }
+.hero-stat-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--white3); text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTIONS */
+section { padding: 120px 60px; position: relative; }
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 3px;
+  color: var(--accent); text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-tag::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300; line-height: 1.1;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-desc {
+  font-size: 16px; font-weight: 300;
+  color: var(--white2); line-height: 1.8;
+  max-width: 560px;
+}
+
+/* ABOUT */
+#about { background: var(--deep); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+
+.about-visual {
+  position: relative;
+  height: 400px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.about-rings {
+  position: relative; width: 300px; height: 300px;
+}
+.ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ring-1 {
+  width: 300px; height: 300px;
+  border-color: rgba(91,143,255,0.15);
+  animation: rotate 20s linear infinite;
+}
+.ring-2 {
+  width: 220px; height: 220px;
+  border-color: rgba(212,168,83,0.2);
+  animation: rotate 15s linear infinite reverse;
+}
+.ring-3 {
+  width: 140px; height: 140px;
+  border-color: rgba(45,212,191,0.25);
+  animation: rotate 10s linear infinite;
+}
+@keyframes rotate { from{ transform: translate(-50%,-50%) rotate(0deg); } to{ transform: translate(-50%,-50%) rotate(360deg); } }
+
+.ring-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  top: -4px; left: 50%; margin-left: -4px;
+}
+.ring-1 .ring-dot { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.ring-2 .ring-dot { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.ring-3 .ring-dot { background: var(--teal); box-shadow: 0 0 10px var(--teal); }
+
+.ring-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  border: 2px solid var(--accent);
+  transform: translate(-50%, -50%) rotate(45deg);
+  display: flex; align-items: center; justify-content: center;
+}
+.ring-center::after {
+  content: '';
+  position: absolute; inset: 10px;
+  background: var(--accent); opacity: 0.3;
+}
+
+.about-pillars {
+  display: flex; flex-direction: column; gap: 24px;
+  margin-top: 48px;
+}
+.pillar-item {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.pillar-item:hover {
+  border-color: var(--border2);
+  background: rgba(255,255,255,0.04);
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 11px; color: var(--accent);
+  opacity: 0.6; min-width: 20px;
+  padding-top: 2px;
+}
+.pillar-name {
+  font-size: 15px; font-weight: 500;
+  color: var(--white); margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+.pillar-desc {
+  font-size: 13px; color: var(--white3);
+  line-height: 1.6;
+}
+
+/* PRODUCTS */
+#products { background: var(--black); }
+
+.products-header {
+  max-width: 1200px; margin: 0 auto 64px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+
+.products-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.product-card {
+  background: var(--black);
+  padding: 36px 32px;
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.product-card:hover { background: var(--card); }
+.product-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.product-card:hover::before { opacity: 1; }
+
+.product-card.featured {
+  background: var(--card);
+  border: 1px solid rgba(91,143,255,0.2);
+  margin: -1px;
+}
+.product-card.featured::before { opacity: 0.5; }
+
+.product-icon-wrap {
+  width: 44px; height: 44px;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  font-family: var(--mono); font-size: 12px;
+  color: var(--accent); letter-spacing: 1px;
+  transition: border-color 0.3s;
+}
+.product-card:hover .product-icon-wrap { border-color: var(--accent); }
+
+.product-card-name {
+  font-size: 17px; font-weight: 500;
+  color: var(--white); margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+.product-card-desc {
+  font-size: 13px; color: var(--white3);
+  line-height: 1.7; margin-bottom: 20px;
+}
+.product-badge {
+  display: inline-block;
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+.badge-live { background: rgba(45,212,191,0.1); color: var(--teal); border: 1px solid rgba(45,212,191,0.2); }
+.badge-build { background: rgba(212,168,83,0.1); color: var(--gold); border: 1px solid rgba(212,168,83,0.2); }
+.badge-plan { background: rgba(255,255,255,0.04); color: var(--white3); border: 1px solid var(--border2); }
+
+/* FOUNDER */
+#founder {
+  background: var(--deep);
+  overflow: hidden;
+}
+
+.founder-wrap {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 80px; align-items: center;
+}
+
+.founder-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 48px;
+  position: relative; overflow: hidden;
+}
+.founder-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.founder-avatar-wrap {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,168,83,0.4);
+  background: rgba(212,168,83,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 24px;
+  position: relative;
+}
+.founder-avatar-wrap::after {
+  content: '';
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,168,83,0.15);
+}
+
+.founder-name {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 300;
+  color: var(--white); margin-bottom: 4px;
+}
+.founder-role {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.founder-bio {
+  font-size: 14px; color: var(--white2);
+  line-height: 1.8; margin-bottom: 24px;
+}
+.founder-tags {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.founder-tag {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 1px; padding: 4px 10px;
+  border: 1px solid var(--border2); border-radius: 100px;
+  color: var(--white3); text-transform: uppercase;
+}
+
+.founder-quote {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300; font-style: italic;
+  line-height: 1.5; color: var(--white);
+  margin-bottom: 32px;
+}
+.founder-quote span { color: var(--gold); }
+
+.founder-mission {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.mission-item {
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.mission-num {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--accent); min-width: 24px; padding-top: 2px;
+}
+.mission-text {
+  font-size: 14px; color: var(--white2); line-height: 1.7;
+}
+.mission-text strong { color: var(--white); font-weight: 500; }
+
+/* ROADMAP */
+#roadmap { background: var(--black); }
+
+.roadmap-wrap {
+  max-width: 900px; margin: 64px auto 0;
+  position: relative;
+}
+.roadmap-line {
+  position: absolute; left: 120px; top: 0; bottom: 0;
+  width: 1px; background: var(--border);
+}
+
+.roadmap-item {
+  display: flex; gap: 48px;
+  padding: 32px 0; position: relative;
+}
+.roadmap-item::after {
+  content: '';
+  position: absolute; left: 116px;
+  top: 44px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--white3);
+  background: var(--black);
+  transition: border-color 0.3s;
+}
+.roadmap-item.done::after { border-color: var(--teal); background: var(--teal); }
+.roadmap-item.now::after { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.roadmap-item.soon::after { border-color: var(--gold); }
+
+.roadmap-period {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--white3); letter-spacing: 1px;
+  min-width: 100px; padding-top: 4px;
+  text-align: right;
+}
+.roadmap-content { flex: 1; padding-left: 32px; }
+.roadmap-title {
+  font-size: 18px; font-weight: 500;
+  color: var(--white); margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.roadmap-item.done .roadmap-title { color: var(--teal); }
+.roadmap-item.now .roadmap-title { color: var(--accent); }
+.roadmap-items {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--white3); line-height: 2.2;
+}
+
+/* CONTACT */
+#contact {
+  background: var(--deep);
+  text-align: center;
+}
+
+.contact-wrap {
+  max-width: 700px; margin: 0 auto;
+}
+
+.contact-title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 300; line-height: 1.1;
+  margin-bottom: 24px;
+}
+.contact-title em { font-style: italic; color: var(--accent); }
+
+.contact-desc {
+  font-size: 16px; color: var(--white2);
+  line-height: 1.8; margin-bottom: 48px;
+}
+
+.contact-form {
+  display: flex; flex-direction: column; gap: 16px;
+  text-align: left;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 2px; color: var(--white3);
+  text-transform: uppercase;
+}
+.form-input, .form-select, .form-textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 14px 16px;
+  font-family: var(--sans); font-size: 14px;
+  color: var(--white); outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: rgba(91,143,255,0.5);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--white3); }
+.form-select { cursor: none; }
+.form-select option { background: var(--card); }
+.form-textarea { resize: none; height: 120px; }
+.form-submit {
+  background: var(--accent);
+  color: var(--black);
+  border: none; border-radius: 2px;
+  padding: 16px 48px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 3px; text-transform: uppercase;
+  cursor: none; font-weight: 500;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+.form-submit:hover {
+  box-shadow: 0 0 30px rgba(91,143,255,0.4);
+  transform: translateY(-2px);
+}
+
+.contact-info {
+  display: flex; gap: 40px; justify-content: center;
+  margin-top: 64px; padding-top: 48px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.contact-item {
+  display: flex; flex-direction: column; gap: 4px;
+  align-items: center;
+}
+.contact-item-label {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 2px; color: var(--white3);
+  text-transform: uppercase;
+}
+.contact-item-value {
+  font-size: 14px; color: var(--white2);
+}
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  padding: 32px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 2px; color: var(--white3);
+}
+.footer-brand span { color: var(--accent); }
+.footer-copy {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--white3); letter-spacing: 1px;
+}
+
+/* SCROLL ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  section { padding: 80px 24px; }
+  #hero { padding: 100px 24px 60px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-visual { display: none; }
+  .products-grid { grid-template-columns: 1fr; }
+  .founder-wrap { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>emailjs.init('kkO_6yePBEvHfPA5X');</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("kkO_6yePBEvHfPA5X");
+</script>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-diamond"></div>
+    <div class="nav-brand">SOVARY OS</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Early Access</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      Now Building · India · 2026
+    </div>
+    <h1 class="hero-title">
+      The World's First
+      <em>Sovereign AI</em>
+      <span>Operating System</span>
+    </h1>
+    <p class="hero-sub">
+      SOVARY OS is not another AI tool. It's the infrastructure that lets you govern your company, protect your assets, and make autonomous decisions — with zero cloud dependency.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get Early Access</a>
+      <a href="#about" class="btn-secondary">Learn More</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">₹<span>0</span></div>
+        <div class="hero-stat-label">Monthly Infra Cost</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span>100</span>%</div>
+        <div class="hero-stat-label">Local · No Cloud</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span>6</span></div>
+        <div class="hero-stat-label">Products Building</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span>2026</span></div>
+        <div class="hero-stat-label">Founded · India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-tag reveal">What We're Building</div>
+      <h2 class="section-title reveal reveal-delay-1">
+        AI that <em>governs</em>,<br>not just generates
+      </h2>
+      <p class="section-desc reveal reveal-delay-2">
+        In 2026, every AI tool talks and writes. But none can run a company. SOVARY OS is the missing infrastructure — a private, autonomous brain that manages decisions, enforces rules, and protects your empire without ever touching the cloud.
+      </p>
+      <div class="about-pillars reveal reveal-delay-3">
+        <div class="pillar-item">
+          <div class="pillar-num">01</div>
+          <div>
+            <div class="pillar-name">Oracle Bridge</div>
+            <div class="pillar-desc">Secure private data pipeline — connects your most sensitive data to the AI brain with zero public leakage.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-num">02</div>
+          <div>
+            <div class="pillar-name">Autonomous Executive Logic</div>
+            <div class="pillar-desc">Logic gates and decision engine — auto-pays invoices, audits files, enforces your Prime Directives.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-num">03</div>
+          <div>
+            <div class="pillar-name">Iron Kernel</div>
+            <div class="pillar-desc">Private, hack-resistant local AI environment — runs on your hardware, governed by your constitution.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-rings">
+        <div class="ring ring-1"><div class="ring-dot"></div></div>
+        <div class="ring ring-2"><div class="ring-dot"></div></div>
+        <div class="ring ring-3"><div class="ring-dot"></div></div>
+        <div class="ring-center"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header reveal">
+    <div>
+      <div class="section-tag">Our Products</div>
+      <h2 class="section-title">Built from <em>scratch</em>,<br>owned by you</h2>
+    </div>
+    <p class="section-desc" style="max-width:320px;">Six products forming the complete SOVARY OS stack — all running locally on your hardware.</p>
+  </div>
+  <div class="products-grid reveal reveal-delay-1">
+    <div class="product-card featured">
+      <div class="product-icon-wrap">[ OS ]</div>
+      <div class="product-card-name">SOVARY OS</div>
+      <div class="product-card-desc">The Sovereign Operating System. Manages intent and authority — coordinates AI agents, enforces Prime Directives, acts as your Central Brain.</div>
+      <span class="product-badge badge-build">In Development</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">[ SS ]</div>
+      <div class="product-card-name">Sentinel Shell</div>
+      <div class="product-card-desc">AI analysis and proposal engine. Reads market signals and news, proposes structured decisions to the Iron Kernel for approval.</div>
+      <span class="product-badge badge-live">Live · v0.1</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">[ OB ]</div>
+      <div class="product-card-name">Oracle Bridge</div>
+      <div class="product-card-desc">Secure private data pipeline. Connects sensitive data — bank accounts, legal docs, strategy — to the AI without any cloud exposure.</div>
+      <span class="product-badge badge-plan">Planned Q2 2026</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">[ IK ]</div>
+      <div class="product-card-name">Iron Kernel</div>
+      <div class="product-card-desc">Private, hack-resistant execution environment. Runs 100% locally, enforces the hardcoded constitution, blocks model drift.</div>
+      <span class="product-badge badge-live">Live · Ollama</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">[ WB ]</div>
+      <div class="product-card-name">SOVARY Web</div>
+      <div class="product-card-desc">Founder-only governance dashboard. Real-time Sentinel proposals, Obsidian Ledger, market signals, protected by 2-factor login.</div>
+      <span class="product-badge badge-live">Live · v5.0</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">[ AI ]</div>
+      <div class="product-card-name">SOVARY AI</div>
+      <div class="product-card-desc">Conversational intelligence layer. Chat with your OS, control the Sentinel and Kernel via natural language — fully local.</div>
+      <span class="product-badge badge-live">Live · v1.0</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="founder-wrap">
+    <div class="reveal">
+      <div class="section-tag">The Founder</div>
+      <div class="founder-quote">
+        "I am building the infrastructure that lets every founder run their empire with the power of <span>sovereign AI</span> — without surrendering control to anyone."
+      </div>
+      <div class="founder-mission">
+        <div class="mission-item">
+          <div class="mission-num">01</div>
+          <div class="mission-text"><strong>The Problem</strong> — Every AI tool in 2026 leaks data to the cloud, drifts from intent, and has no real governance layer.</div>
+        </div>
+        <div class="mission-item">
+          <div class="mission-num">02</div>
+          <div class="mission-text"><strong>The Solution</strong> — SOVARY OS runs locally, enforces your rules, and acts on your behalf — never on behalf of a platform.</div>
+        </div>
+        <div class="mission-item">
+          <div class="mission-num">03</div>
+          <div class="mission-text"><strong>The Vision</strong> — A world where every founder has a private AI brain that governs their empire with zero compromise.</div>
+        </div>
+      </div>
+    </div>
+    <div class="founder-card reveal reveal-delay-2">
+      <div class="founder-avatar-wrap">K</div>
+      <div class="founder-name">Kishore</div>
+      <div class="founder-role">CEO & Founder · SOVARY OS</div>
+      <div class="founder-bio">
+        Visionary behind SOVARY OS — the world's first Sovereign AI Operating System. Building the infrastructure layer for the Agentic Era from India, with a mission to give every individual and company a private AI brain that acts on their behalf.
+      </div>
+      <div class="founder-tags">
+        <div class="founder-tag">AI Infrastructure</div>
+        <div class="founder-tag">Autonomous Systems</div>
+        <div class="founder-tag">Governance</div>
+        <div class="founder-tag">India · 2026</div>
+        <div class="founder-tag">Pre-seed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="section-tag reveal">Timeline</div>
+    <h2 class="section-title reveal reveal-delay-1">Building the <em>future</em><br>one quarter at a time</h2>
+  </div>
+  <div class="roadmap-wrap reveal reveal-delay-2">
+    <div class="roadmap-line"></div>
+    <div class="roadmap-item done">
+      <div class="roadmap-period">Q1 2026</div>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Foundation ✓ Complete</div>
+        <div class="roadmap-items">· SOVARY OS architecture designed<br>· Sentinel Shell v0.1 built<br>· Iron Kernel — llama3 local setup<br>· SOVARY Web v5 + 2-factor login<br>· SOVARY AI v1.0 launched</div>
+      </div>
+    </div>
+    <div class="roadmap-item now">
+      <div class="roadmap-period">Q2 2026</div>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Core Infrastructure ← Now</div>
+        <div class="roadmap-items">· Oracle Bridge — private data pipeline<br>· Obsidian Ledger — SQLite audit log<br>· Sentinel Shell v0.2 — live market data<br>· Founder governance platform v2<br>· First pilot users</div>
+      </div>
+    </div>
+    <div class="roadmap-item soon">
+      <div class="roadmap-period">Q3 2026</div>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Autonomous Execution</div>
+        <div class="roadmap-items">· Auto-payment logic gates<br>· Document audit agent<br>· Multi-agent coordination layer<br>· SOVARY OS v1.0 release</div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-period">Q4 2026</div>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Scale & Funding</div>
+        <div class="roadmap-items">· Enterprise governance modules<br>· SOVARY Network — sovereign mesh<br>· Seed funding round (₹1–2 Cr)<br>· 10 paying companies onboarded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="section-tag reveal" style="justify-content:center;">Get Involved</div>
+    <h2 class="contact-title reveal reveal-delay-1">
+      Be part of the<br><em>sovereign future</em>
+    </h2>
+    <p class="contact-desc reveal reveal-delay-2">
+      SOVARY OS is looking for early adopters, pilot partners, and seed investors who believe in the future of sovereign AI governance.
+    </p>
+    <form class="contact-form reveal reveal-delay-3" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="Full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">I am interested as a</label>
+        <select class="form-select">
+          <option>Early adopter / Beta user</option>
+          <option>Pilot company partner</option>
+          <option>Seed investor</option>
+          <option>Co-founder / Team member</option>
+          <option>Just curious</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell us about yourself and why you're interested in SOVARY OS..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Request →</button>
+    </form>
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-item-label">Founder</div>
+        <div class="contact-item-value">Kishore</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Based in</div>
+        <div class="contact-item-value">India</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Stage</div>
+        <div class="contact-item-value">Pre-seed · 2026</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8de6e4fee2ffe8f4ece9e1ecbcbdbdcdeae0ece4e1a3eee2e0">[email&#160;protected]</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><span>SOVARY OS</span> · Sovereign AI Operating System · India · 2026</div>
+  <div class="footer-copy">© 2026 SOVARY OS · All rights reserved · Confidential</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
+});
+
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.transform = `translate(${rx - 16}px, ${ry - 16}px)`;
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a, button, .pillar-item, .product-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform += ' scale(1.5)';
+    ring.style.width = '48px';
+    ring.style.height = '48px';
+  });
+  el.addEventListener('mouseleave', () => {
+    ring.style.width = '32px';
+    ring.style.height = '32px';
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const formData = {
+    from_name: e.target.querySelector('input[type=text]').value,
+    from_email: e.target.querySelector('input[type=email]').value,
+    interest: e.target.querySelector('select').value,
+    message: e.target.querySelector('textarea').value
+  };
+
+  emailjs.send('service_bxlqy2p', 'template_7bikhuk', formData)
+    .then(() => {
+      btn.textContent = 'Request Sent ✓';
+      btn.style.background = '#2dd4bf';
+      btn.style.color = '#04060a';
+      e.target.reset();
+      setTimeout(() => {
+        btn.textContent = 'Submit Request →';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 4000);
+    })
+    .catch((err) => {
+      btn.textContent = 'Failed. Try again.';
+      btn.style.background = '#ff3b3b';
+      btn.style.color = '#fff';
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.textContent = 'Submit Request →';
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 3000);
+    });
+}
+
+// Smooth nav
+document.querySelectorAll('a[href^="#"]').forEach
